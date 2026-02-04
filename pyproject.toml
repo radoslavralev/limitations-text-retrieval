@@ -1,0 +1,31 @@
+[project]
+name = "limitations-experiments"
+version = "0.1.0"
+description = "Identity trade-off experiments for Dual Encoders"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "sentence-transformers>=2.3.0",
+    "spacy>=3.5.0",
+    "datasets>=2.14.0,<3.0.0",
+    "torch>=2.0.0",
+    "torchvision>=0.15.0",
+    "numpy>=1.24.0",
+    "tqdm>=4.65.0",
+    "huggingface-hub>=0.16.0",
+    "accelerate>=1.12.0",
+    "wandb>=0.23.1",
+    "peft>=0.18.1",
+    "openai>=2.15.0",
+    "matplotlib>=3.10.8",
+    "beir>=2.2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+]
+
+[project.scripts]
+make-datasets = "make_datasets:main"
+train = "train:main"
