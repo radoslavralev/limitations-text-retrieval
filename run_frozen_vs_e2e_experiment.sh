@@ -602,7 +602,7 @@ for SEED in "${SEEDS[@]}"; do
             echo ""
             echo ">>> Running FROZEN encoder experiment for ${VERIFIER} (Seed ${SEED})..."
             
-            uv run python train_and_eval_verifiers_experiment.py \
+            uv run --active python train_and_eval_verifiers_experiment.py \
                 --encoder "${ENCODER}" \
                 --data-path "${DATA_PATH}" \
                 --mrpc-path "${MRPC_PATH}" \
@@ -640,7 +640,7 @@ for SEED in "${SEEDS[@]}"; do
             echo ""
             echo ">>> Running E2E experiment for ${VERIFIER} (Seed ${SEED})..."
             
-            uv run python train_and_eval_verifiers_experiment.py \
+            uv run --active python train_and_eval_verifiers_experiment.py \
                 --encoder "${ENCODER}" \
                 --data-path "${DATA_PATH}" \
                 --mrpc-path "${MRPC_PATH}" \

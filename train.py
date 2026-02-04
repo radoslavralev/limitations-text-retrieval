@@ -143,25 +143,11 @@ def create_model(
     Returns:
         SentenceTransformer model
     """
-    # Load transformer model in fp32 - trainer handles mixed precision
-    # word_embedding_model = models.Transformer(
-    #     model_name,
-    #     max_seq_length=max_seq_length,
-    #     model_args={"add_pooling_layer": False},
-    # )
-    
-    # # Configure pooling
-    # pooling_model = models.Pooling(
-    #     word_embedding_model.get_word_embedding_dimension(),
-    #     pooling_mode_cls_token=(pooling_mode == "cls"),
-    #     pooling_mode_mean_tokens=(pooling_mode == "mean"),
-    #     pooling_mode_max_tokens=False,
-    # )
-    
     # Combine into SentenceTransformer
     model = SentenceTransformer(
         model_name,
         device=device,
+        model_kwargs={"force_download": True},
     )
     model.max_seq_length = max_seq_length
     
